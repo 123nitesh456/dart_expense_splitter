@@ -130,19 +130,32 @@ class ExpenseGroup {
     }
   }
 }
-
 void main() {
   final group = ExpenseGroup();
 
-  try {
-    group.addMember('Asha');
-    group.addMember('Ravi');
-    group.addMember('Neha');
+  group.addMember('Asha');
+  group.addMember('Ravi');
+  group.addMember('Neha');
 
-    group.addExpense(
-      title: 'Dinner',
-      amount: 900,
-      paidBy: 'Asha',
-      category: 'food',
-      splitBetween: ['Asha', 'Ravi', 'Neha'],
-    );
+  group.addExpense(
+    title: 'Dinner',
+    amount: 900,
+    paidBy: 'Asha',
+    category: 'food',
+    splitBetween: ['Asha', 'Ravi', 'Neha'],
+  );
+
+  group.addExpense(
+    title: 'Travel',
+    amount: 600,
+    paidBy: 'Ravi',
+    category: 'travel',
+    splitBetween: ['Asha', 'Ravi', 'Neha'],
+  );
+
+  group.listExpenses();
+  group.listExpenses(member: 'Ravi');
+  group.listExpenses(category: 'food');
+
+  group.printBalances();
+}
